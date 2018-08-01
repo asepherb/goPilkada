@@ -1,14 +1,14 @@
 package main
 
 import (
-	"net/http"
-	"github.com/asepherb/echo"
+	"github.com/labstack/echo"
 )
+
 
 func main() {
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "REST API Pemilu!")
-	})
+
+	e.GET("/tasks", func(c echo.Context) error { return c.JSON(200, "REST API") })
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
